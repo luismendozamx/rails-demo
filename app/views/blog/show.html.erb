@@ -1,2 +1,45 @@
-<h1>Blog#show</h1>
-<p>Find me in app/views/blog/show.html.erb</p>
+<article class="blog-post">
+  <% if @post.feature_image.present? %>
+    <div class="feature-image">
+      <%= image_tag @post.feature_image, alt: @post.title, class: "img-fluid" %>
+    </div>
+  <% end %>
+
+  <header class="post-header">
+    <h1 class="post-title"><%= @post.title %></h1>
+    
+    <div class="post-meta">
+        <time datetime="<%= @post.published_at.iso8601 %>">
+          <%= @post.published_at.strftime("%B %d, %Y") %>
+        </time>
+        
+      <% if @post.authors.present? %>
+        <div class="authors">
+          By <%= @post.authors.map { |author| author["name"] }.to_sentence %>
+        </div>
+      <% end %>
+
+      <% if @post.tags.present? %>
+        <div class="tags">
+          <% @post.tags.each do |tag| %>
+            <span class="tag"><%= tag["name"] %></span>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </header>
+
+  <% if @post.excerpt.present? %>
+    <div class="post-excerpt">
+      <%= @post.excerpt %>
+    </div>
+  <% end %>
+
+  <div class="post-content">
+    <%= sanitize @post.content, tags: %w[p br img h1 h2 h3 h4 h5 h6 ul ol li strong em a blockquote pre code hr div span], attributes: %w[href src alt title class] %>
+  </div>
+</article>
+
+<div class="post-navigation">
+  <%= link_to "Back to Blog", blog_path, class: "back-link" %>
+</div>
