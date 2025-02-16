@@ -1,24 +1,25 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails 8 demo application used in Luis Mendoza's Youtube series:
 
-Things you may want to cover:
+https://www.youtube.com/playlist?list=PLQF8wwyJ0_GotQZISuz3cb7fOMMHTqfqW
 
-* Ruby version
+## Setup
 
-* System dependencies
+Install ruby 3.3.7
 
-* Configuration
+I use mise to manage my ruby versions and gems. But feel free to use any other language manager you want.
 
-* Database creation
+To install dependencies, run:
 
-* Database initialization
+```
+gem install bundler
+bundle install
+```
 
-* How to run the test suite
+To run the server, run:
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```
+rails db:prepare
+rails server
+```
