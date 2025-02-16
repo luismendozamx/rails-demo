@@ -44,3 +44,7 @@ end
 # Uncomment when needed:
 # gem "bcrypt", "~> 3.1.7"
 # gem "image_processing", "~> 1.2"
+
+group :test do
+  gem "factory_bot_rails"
+end
