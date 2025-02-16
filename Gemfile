@@ -24,7 +24,6 @@ gem "kamal", require: false
 
 # Added dependencies
 gem "annotate"
-gem "faker"
 
 # Platform specific
 gem "tzinfo-data", platforms: %i[ windows jruby ]
@@ -34,6 +33,8 @@ group :development, :test do
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
   gem "pry"
+  gem "factory_bot_rails"
+  gem "faker"
 end
 
 group :development do
